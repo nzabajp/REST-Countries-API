@@ -16,6 +16,10 @@ const GlobalStyles = createGlobalStyle`
         border: 1px solid pink;
         min-height: 100vh;
     }
+
+    img {
+        width: 100%;
+    }
 `
 
 export default GlobalStyles

@@ -33,8 +33,8 @@ function Header() {
             <p>Where in the world?</p>
             <div onClick={toggleDark}>
                 {isDark ?
-                    <i class="ri-moon-fill"></i> :
-                    <i class="ri-moon-line"></i>
+                    <i className="ri-moon-fill"></i> :
+                    <i className="ri-moon-line"></i>
                 }
                 <p>Dark Mode</p>
             </div>
