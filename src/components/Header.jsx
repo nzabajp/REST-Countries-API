@@ -23,7 +23,7 @@ const HeaderContainer = styled.header`
 `
 
 //Component
-function Header() {
+const Header = () => {
     const [isDark, setIsDark] = useState(false)
 
     const toggleDark = () => setIsDark(prev => !prev)

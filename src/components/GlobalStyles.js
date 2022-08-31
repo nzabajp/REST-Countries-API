@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
     :root {
         box-sizing: border-box;
+        scroll-behavior: smooth;
     }
 
     body {
@@ -19,6 +20,8 @@ const GlobalStyles = createGlobalStyle`
 
     img {
         width: 100%;
+        aspect-ratio: 6/4;
+        object-fit: cover;
     }
 `
 

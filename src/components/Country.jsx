@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom'
 import styled from "styled-components"
 
-const CountryContainer = styled.div`
+//Styling
+const CountryContainer = styled(Link)`
     border: 1px solid pink;
 `
 
-function Country({countries}) {
+//Component
+const Country = ({countries}) => {
     const { 
         name: { common },
         flags: { png },
@@ -14,7 +17,7 @@ function Country({countries}) {
     } = countries
 
     return (
-        <CountryContainer>
+        <CountryContainer to={`/${common}`}>
             <div>
                 <img src={png} />
             </div>

@@ -2,13 +2,13 @@ import { useState } from 'react'
 import styled from 'styled-components'
 
 import Country from '../components/Country'
+import ScrollToTop from '../components/ScrollToTop'
+import { renderCountries } from '../components/utils'
+import { SectionContainer } from '../components/Styles'
 
 //Styles
-const SectionContainer = styled.main`
-    border: 1px solid blue;
-    width: 90%;
-    margin: 1em auto;
-
+const SectionInput = styled.section`
+    margin-bottom: 1em;
 `
 
 const InputContainer = styled.p`
@@ -34,23 +34,31 @@ const DropList = styled.select`
     /* background-color: white; */
 `
 
-//Component
-function HomePage({countries}) {
-    const [countryName, setCountryName] = useState('')
-    const [region, setRegion] = useState('')
-    console.log(region)
-    console.log(region && true)
+const SectionCountries = styled.section`
+    max-width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1em;
+`
 
-    const mappedCountries = countries.map(data => (
-        <Country 
+//Component
+const HomePage = ({countries}) => {
+    const [countryName, setCountryName] = useState('')
+    const [countryRegion, setCountryRegion] = useState('')
+
+    const mappedCountries = renderCountries(countries, countryName, countryRegion)
+        .map(data => (
+            <Country 
             key={data.name.common}
             countries={data} 
-        />
-    ))
+            />
+        )
+    )
 
     return (
         <SectionContainer>
-            <section>
+            <SectionInput>
                 <InputContainer>
                     <i className="ri-search-line"></i>
                     <input 
@@ -61,20 +69,25 @@ function HomePage({countries}) {
                     />
                 </InputContainer>
                 <DropList
-                    value={region}
-                    onChange={(e) => setRegion(e.target.value)}
+                    value={countryRegion}
+                    onChange={(e) => setCountryRegion(e.target.value)}
                 >
                     <option value="">Filter by Region</option>
                     <option value="africa">Africa</option>
-                    <option value="america">America</option>
+                    <option value="americas">America</option>
                     <option value="asia">Asia</option>
                     <option value="europe">Europe</option>
-                    <option value="ociania">Oceania</option>
+                    <option value="oceania">Oceania</option>
                 </DropList>
-            </section>
-            <section>
-                {mappedCountries}
-            </section>
+            </SectionInput>
+            <SectionCountries>
+                {
+                    mappedCountries.length > 0 ? 
+                    mappedCountries : 
+                    <h1>Loading...</h1>
+                }
+            </SectionCountries>
+            <ScrollToTop />
         </SectionContainer>
     )
 }
