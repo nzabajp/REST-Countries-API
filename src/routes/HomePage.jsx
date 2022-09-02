@@ -9,29 +9,55 @@ import { SectionContainer } from '../components/Styles'
 //Styles
 const SectionInput = styled.section`
     margin-bottom: 1em;
+    
+    @media (min-width: 600px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 `
 
 const InputContainer = styled.p`
-    border: 1px solid red;
     border-radius: 5px;
     padding: .7em 1.5em;
     margin-top: 0;
     display: flex;
     align-items: center;
     gap: 1em;
+    color: var(--input);
+    background-color: var(--element);
+    box-shadow: var(--box-shadow);
 
     & > input {
         border: none;
         width: 100%;
         padding: .5em .1em;
+        font-size: .9rem;
+        color: inherit;
+        background-color: inherit;
+
+        &::placeholder {
+            color: inherit;
+        }
+    }
+
+    @media (min-width: 600px) {
+        width: 40%;
     }
 `
 
 const DropList = styled.select`
-    padding: 1em;
+    border: none;
+    padding: 1.3em 1em;
     width: 50%;
     border-radius: 5px;
-    /* background-color: white; */
+    color: var(--input);
+    background-color: var(--element);
+    box-shadow: var(--box-shadow);
+
+    @media (min-width: 600px) {
+        width: 20%;
+    }
 `
 
 const SectionCountries = styled.section`
@@ -51,7 +77,7 @@ const HomePage = ({countries}) => {
         .map(data => (
             <Country 
             key={data.name.common}
-            countries={data} 
+            countries={data}
             />
         )
     )

@@ -1,13 +1,13 @@
-import { useState } from "react"
 import styled from 'styled-components'
 
 //Styles
 const HeaderContainer = styled.header`
-    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1em;
+    box-shadow: var(--box-shadow);
+    background-color: var(--element);
 
     & > p {
         font-weight: 800;
@@ -23,16 +23,13 @@ const HeaderContainer = styled.header`
 `
 
 //Component
-const Header = () => {
-    const [isDark, setIsDark] = useState(false)
-
-    const toggleDark = () => setIsDark(prev => !prev)
+const Header = ({darkMode, setDarkMode}) => {
 
     return (
-        <HeaderContainer>
+        <HeaderContainer darkMode={darkMode}>
             <p>Where in the world?</p>
-            <div onClick={toggleDark}>
-                {isDark ?
+            <div onClick={setDarkMode}>
+                {darkMode ?
                     <i className="ri-moon-fill"></i> :
                     <i className="ri-moon-line"></i>
                 }

@@ -3,7 +3,19 @@ import styled from "styled-components"
 
 //Styling
 const CountryContainer = styled(Link)`
-    border: 1px solid pink;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: var(--box-shadow);
+    background-color: var(--element);
+
+    & > img {
+        border-radius: 5px 5px 0 0;
+    }
+`
+
+const Overview = styled.div`
+    padding: 1.5em 1em;
 `
 
 //Component
@@ -17,16 +29,16 @@ const Country = ({countries}) => {
     } = countries
 
     return (
-        <CountryContainer to={`/${common}`}>
-            <div>
-                <img src={png} />
-            </div>
-            <div>
+        <CountryContainer 
+            to={`/${common}`}
+        >
+            <img src={png} />
+            <Overview>
                 <h2>{common}</h2>
-                <p>Population: {population}</p>
-                <p>Religion: {region}</p>
-                <p>Capital: {capital}</p>
-            </div>
+                <p><span>Population:</span> {Number(population).toLocaleString()}</p>
+                <p><span>Religion:</span> {region}</p>
+                <p><span>Capital:</span> {capital}</p>
+            </Overview>
         </CountryContainer>
     )
 }

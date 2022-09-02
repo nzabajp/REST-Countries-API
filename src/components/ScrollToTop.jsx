@@ -2,15 +2,20 @@ import { useEffect, useState } from "react"
 import styled from "styled-components"
 
 const Scroll = styled.button`
-    display: ${({scrollPos}) => scrollPos < 100 && "none"};
-    border: 1px solid red;
+    opacity: ${({scrollPos}) => scrollPos < 100 && 0};
+    z-index: ${({scrollPos}) => scrollPos < 100 && -1};
     border-radius: 50%;
     aspect-ratio: 1/1;
-    padding: 1em;
+    padding: 1.5em;
     cursor: pointer;
     position: fixed;
     bottom: 5%;
     right: 10%;
+    transition: opacity .5s;
+    display: flex;
+    border: none;
+    background-color: lightgrey;
+    font-weight: 800;
 `
 
 const ScrollToTop = () => {
@@ -33,7 +38,7 @@ const ScrollToTop = () => {
             scrollPos={scrollPos}
             onClick={() => window.scrollTo({top: 0})}
         >
-            Top
+            <i className="ri-arrow-up-s-line"></i>
         </Scroll>
     )
 }
