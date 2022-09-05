@@ -42,8 +42,6 @@ const GlobalStyles = createGlobalStyle`
     img {
         width: 100%;
         aspect-ratio: 6/4;
-        /* object-fit: cover; */
-        /* object-position: center; */
     }
 
     span {

@@ -9,7 +9,6 @@ import GlobalStyles from './components/GlobalStyles'
 const App = () => {
   const [countries, setCountries] = useState([])
   const [darkMode, setDarkMode] = useState(false)
-  console.log(darkMode)
 
   const toggleDarkMode = () => {
     setDarkMode(prevMode => !prevMode)
