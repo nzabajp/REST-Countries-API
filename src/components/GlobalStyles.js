@@ -10,13 +10,13 @@ const GlobalStyles = createGlobalStyle`
         --lm-input: hsl(0, 0%, 52%);
         --lm-element: hsl(0, 0%, 100%);
         --lm-background: hsl(0, 0%, 98%);
-        --lm-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.18);
+        --lm-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.12);
 
         /* darkmode */
         --dm-text: hsl(0, 0%, 100%);
         --dm-element: hsl(209, 23%, 22%);
         --dm-background: hsl(207, 26%, 17%);
-        --dm-box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.18);
+        --dm-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.12);
 
         /* variables */
         --text: ${({darkMode}) => darkMode ? "var(--dm-text)" : "var(--lm-text)"};

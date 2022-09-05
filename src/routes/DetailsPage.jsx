@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { SectionContainer } from '../components/Styles'
+import { SectionContainer, Loading } from '../components/Styles'
 import { findBorderCountry } from '../components/utils'
 import ScrollToTop from '../components/ScrollToTop'
 
@@ -10,14 +10,13 @@ const DetailsContainer = styled.div`
     margin-top: 2em;
 
     @media (min-width: 600px) {
-        border: 1px solid green;
         display: grid;
         grid-template-columns: repeat(2, 1fr) repeat(2, 1fr);
         grid-template-areas: 
             "flag flag header header"
             "info1 info1 info2 info2"
             "border border border border";
-        grid-gap: 1em;
+        grid-gap: 0 2em;
 
         & .flag {
             grid-area: flag;
@@ -53,13 +52,21 @@ const DetailsContainer = styled.div`
 `
 
 const StyledButton = styled.button`
-    border: 1px solid red;
+    border: none;
+    border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     padding: .5em 2.5em;
     margin-right: 1em;
     margin-bottom: 1em;
     cursor: pointer;
+    box-shadow: var(--box-shadow);
+    background-color: var(--element);
+    color: var(--text);
+
+    &:active {
+        transform: scale(.95);
+    }
 `
 
 //Component
@@ -82,7 +89,9 @@ const DetailsPage = ({ countries }) => {
     if(Object.keys(details).length === 0) {
         return (
             <SectionContainer>
-                <h1>Loading...</h1>
+                <Loading>
+                <i class="ri-loader-4-line"></i>
+                </Loading>
             </SectionContainer>
         )
     } else {
@@ -122,30 +131,30 @@ const DetailsPage = ({ countries }) => {
                     <h1 className="header">{details.name.common}</h1>
                     <div className="info1">
                         <p>
-                            Native Name: {details.name.nativeName[firstNative].official}
+                            <span>Native Name:</span> {details.name.nativeName[firstNative].official}
                         </p>
                         <p>
-                            Population: {Number(details.population).toLocaleString()}
+                            <span>Population:</span> {Number(details.population).toLocaleString()}
                         </p>
                         <p>
-                            Region: {details.region}
+                            <span>Region:</span> {details.region}
                         </p>
                         <p>
-                            Sub Region: {details.subregion}
+                            <span>Sub Region:</span> {details.subregion}
                         </p>
                         <p>
-                            Capital: {details.capital.join(", ")}
+                            <span>Capital:</span> {details.capital.join(", ")}
                         </p>
                     </div>
                     <div className="info2">
                         <p>
-                            Top Level Domain: {details.tld}
+                            <span>Top Level Domain:</span> {details.tld}
                         </p>
                         <p>
-                            Currencies: {details.currencies[currencyName].name} ({details.currencies[currencyName].symbol})
+                            <span>Currencies:</span> {details.currencies[currencyName].name} ({details.currencies[currencyName].symbol})
                         </p>
                         <p>
-                            Languages: {countryLanguages.join(", ")}
+                            <span>Languages:</span> {countryLanguages.join(", ")}
                         </p>
                     </div>
                     <div className="border">

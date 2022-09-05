@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Country from '../components/Country'
 import ScrollToTop from '../components/ScrollToTop'
 import { renderCountries } from '../components/utils'
-import { SectionContainer } from '../components/Styles'
+import { SectionContainer, Loading } from '../components/Styles'
 
 //Styles
 const SectionInput = styled.section`
@@ -44,6 +44,10 @@ const InputContainer = styled.p`
     @media (min-width: 600px) {
         width: 40%;
     }
+`
+
+const Error = styled.h3`
+    grid-column: 1/-1;
 `
 
 const DropList = styled.select`
@@ -110,7 +114,11 @@ const HomePage = ({countries}) => {
                 {
                     mappedCountries.length > 0 ? 
                     mappedCountries : 
-                    <h1>Loading...</h1>
+                    countryName && mappedCountries.length === 0 ?
+                    <Error>The country you are searching for does not exist</Error>:
+                    <Loading>
+                        <i class="ri-loader-4-line"></i>
+                    </Loading>
                 }
             </SectionCountries>
             <ScrollToTop />

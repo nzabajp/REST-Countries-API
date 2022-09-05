@@ -17,7 +17,6 @@ const App = () => {
 
   useEffect(() => {
     const test = window.matchMedia('(prefers-color-scheme: dark)').matches
-    console.log(test)
     setDarkMode(test)
   }, []);
 
@@ -35,10 +34,9 @@ const App = () => {
         darkMode={darkMode} 
         setDarkMode={toggleDarkMode} />
       <Routes>
-        <Route path="/" element={<HomePage countries={countries} darkMode={darkMode} />} />
+        <Route path="/" element={<HomePage countries={countries} />} />
         <Route path="/:country" element={<DetailsPage countries={countries} />} />
       </Routes>
-      <h1>Footer</h1>
     </div>
   )
 }
