@@ -5,7 +5,7 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1em;
+    padding: 1em 2em;
     box-shadow: var(--box-shadow);
     background-color: var(--element);
 
@@ -27,7 +27,7 @@ const Header = ({darkMode, setDarkMode}) => {
 
     return (
         <HeaderContainer darkMode={darkMode}>
-            <p>Where in the world?</p>
+            <h3>Where in the world?</h3>
             <div onClick={setDarkMode}>
                 {darkMode ?
                     <i className="ri-moon-fill"></i> :
