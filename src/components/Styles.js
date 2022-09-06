@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components"
 const SectionContainer = styled.main`
     width: 90%;
     margin: 2em auto;
-    max-width: 1080px;
+    max-width: 1280px;
 `
 
 const rotate = keyframes`

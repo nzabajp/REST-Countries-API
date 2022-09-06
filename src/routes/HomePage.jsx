@@ -11,6 +11,7 @@ const SectionInput = styled.section`
     margin-bottom: 1em;
     
     @media (min-width: 600px) {
+        margin-bottom: 2em;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -68,8 +69,8 @@ const SectionCountries = styled.section`
     max-width: 90%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 3em;
 `
 
 //Component
