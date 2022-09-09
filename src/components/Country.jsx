@@ -30,7 +30,7 @@ const Country = ({countries}) => {
 
     return (
         <CountryContainer 
-            to={`/${common}`}
+            to={`/${common.split(" ").join("-")}`}
         >
             <img 
                 src={png}

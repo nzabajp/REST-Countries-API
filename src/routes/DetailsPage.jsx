@@ -81,7 +81,7 @@ const DetailsPage = ({ countries }) => {
 
 
     if(Object.keys(details).length === 0 && countries.length > 0) {
-        const countryDetails = countries.find(({name: {common}}) => common === country)
+        const countryDetails = countries.find(({name: {common}}) => common === country.split("-").join(" "))
         setDetails(countryDetails)
     }
 
@@ -90,7 +90,7 @@ const DetailsPage = ({ countries }) => {
         return (
             <SectionContainer>
                 <Loading>
-                <i class="ri-loader-4-line"></i>
+                <i className="ri-loader-4-line"></i>
                 </Loading>
             </SectionContainer>
         )
