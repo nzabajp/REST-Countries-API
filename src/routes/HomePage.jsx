@@ -102,6 +102,7 @@ const HomePage = ({countries}) => {
                 <DropList
                     value={countryRegion}
                     onChange={(e) => setCountryRegion(e.target.value)}
+                    aria-label="Filter by region"
                 >
                     <option value="">Filter by Region</option>
                     <option value="africa">Africa</option>
