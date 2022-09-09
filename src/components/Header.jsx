@@ -9,8 +9,12 @@ const HeaderContainer = styled.header`
     box-shadow: var(--box-shadow);
     background-color: var(--element);
 
-    & > p {
-        font-weight: 800;
+    & p {
+        font-size: .9rem;
+
+        @media (min-width: 600px) {
+            font-size: unset;
+        }
     }
 
     & > div {
@@ -22,12 +26,20 @@ const HeaderContainer = styled.header`
     }
 `
 
+const Heading = styled.h1`
+    font-size: 1.1rem;
+
+    @media (min-width: 600px) {
+        font-size: 1.5rem;
+    }
+`
+
 //Component
 const Header = ({darkMode, setDarkMode}) => {
 
     return (
         <HeaderContainer darkMode={darkMode}>
-            <h3>Where in the world?</h3>
+            <Heading>Where in the world?</Heading>
             <div onClick={setDarkMode}>
                 {darkMode ?
                     <i className="ri-moon-fill"></i> :
