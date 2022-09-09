@@ -32,7 +32,10 @@ const Country = ({countries}) => {
         <CountryContainer 
             to={`/${common}`}
         >
-            <img src={png} />
+            <img 
+                src={png}
+                alt={`${common}'s flag`}
+            />
             <Overview>
                 <h2>{common}</h2>
                 <p><span>Population:</span> {Number(population).toLocaleString()}</p>

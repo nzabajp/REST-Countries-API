@@ -127,7 +127,11 @@ const DetailsPage = ({ countries }) => {
                     <i className="ri-arrow-left-line"></i> Back
                 </StyledButton>
                 <DetailsContainer>
-                    <img src={details.flags.png} className="flag"/>
+                    <img 
+                        src={details.flags.png} 
+                        className="flag"
+                        alt="country flag"
+                    />
                     <h1 className="header">{details.name.common}</h1>
                     <div className="info1">
                         <p>
