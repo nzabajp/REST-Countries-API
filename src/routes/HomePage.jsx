@@ -119,7 +119,7 @@ const HomePage = ({countries}) => {
                     countryName && mappedCountries.length === 0 ?
                     <Error>The country you are searching for does not exist</Error>:
                     <Loading>
-                        <i class="ri-loader-4-line"></i>
+                        <i className="ri-loader-4-line"></i>
                     </Loading>
                 }
             </SectionCountries>
