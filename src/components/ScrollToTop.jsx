@@ -37,7 +37,7 @@ const ScrollToTop = () => {
         <Scroll 
             scrollPos={scrollPos}
             onClick={() => window.scrollTo({top: 0})}
-            arial-label="Scroll to top"
+            aria-label="Scroll to top"
         >
             <i className="ri-arrow-up-s-line"></i>
         </Scroll>
